@@ -18,7 +18,7 @@ struct LaunchScreenView: View {
         
         ZStack {
             if self.isActive {
-                MainScreenView()
+                CameraView()
             } else {
                 ZStack {
                     Image("launchBg")
