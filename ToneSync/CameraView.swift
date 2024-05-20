@@ -14,6 +14,8 @@ struct CameraView: View {
     
     @State var isActive: Bool = false
     
+    @State var capturedImage: UIImage?
+    
     var body: some View {
         ZStack {
             // Camera preview
@@ -25,11 +27,29 @@ struct CameraView: View {
                 ZStack {
                     // Show retake button if photo is taken
                     if camera.isTaken {
+                        if (isActive) {
+                            AnalyzeView(captureImage: capturedImage ?? UIImage())
+                        } else {
                             // Retake photo button
                             RetakeButton(camera: camera)
-                        
+                            
                             // Analyze photo button
-                            AnalyzeButton()
+                            Button(action: {self.isActive = true}, label: {
+                                ZStack {
+                                    Rectangle()
+                                        .frame(width: 90, height: 90)
+                                        .foregroundColor(.white.opacity(0.5))
+                                        .cornerRadius(20)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 20)
+                                                .stroke(Color.white, lineWidth: 1)
+                                        )
+                                    Image(systemName: "magnifyingglass.circle.fill")
+                                        .font(.system(size: 40))
+                                        .foregroundColor(.darkBrown)
+                                }
+                            }).padding(.leading, 520)
+                        }
                         
                     } else {
                             // Pick photo button
@@ -43,6 +63,11 @@ struct CameraView: View {
         }
         .onAppear {
             camera.checkPermission()
+        }
+        .onReceive(camera.$capturedPhoto) { output in
+            if let image = output{
+                self.capturedImage = image
+            }
         }
     }
 }
@@ -68,26 +93,6 @@ struct RetakeButton: View {
                     .foregroundColor(.darkBrown)
             }
         })
-    }
-}
-
-struct AnalyzeButton: View {
-    var body: some View {
-        Button(action: {}, label: {
-            ZStack {
-                Rectangle()
-                    .frame(width: 90, height: 90)
-                    .foregroundColor(.white.opacity(0.5))
-                    .cornerRadius(20)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color.white, lineWidth: 1)
-                    )
-                Image(systemName: "magnifyingglass.circle.fill")
-                    .font(.system(size: 40))
-                    .foregroundColor(.darkBrown)
-            }
-        }).padding(.leading, 520)
     }
 }
 
@@ -137,7 +142,7 @@ struct TakePhotoButton: View {
 
 class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     @Published var isTaken = false
-    @Published var session = AVCaptureSession()
+    @Published var session = AVCaptureSession()		
     @Published var alert = false
     
     // Read pic data
@@ -148,6 +153,8 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     
     // Captured Picture
     @Published var capturedPhoto: UIImage? = nil
+    
+    var viewModel: ViewModel?
     
     func checkPermission() {
         // First checking camera has got permission...
@@ -184,6 +191,8 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
             let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front)
             let input = try AVCaptureDeviceInput(device: device!)
             
+            
+            
             // Checking and adding to session...
             if session.canAddInput(input) {
                 session.addInput(input)
@@ -217,6 +226,7 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
             return
         }
         self.capturedPhoto = image
+//        viewModel?.selectedImage = capturedPhoto÷0
     }
     
     func retakePhoto() {

@@ -14,6 +14,9 @@
 		80EBC9222BF7C23600B58933 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EBC9212BF7C23600B58933 /* LaunchScreenView.swift */; };
 		80EBC9262BF7C4EC00B58933 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EBC9252BF7C4EC00B58933 /* CameraView.swift */; };
 		80EBC9282BF7E5EF00B58933 /* AnalyzeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EBC9272BF7E5EF00B58933 /* AnalyzeView.swift */; };
+		80EBC92A2BF7F45700B58933 /* SkinToneClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 80EBC9292BF7F45700B58933 /* SkinToneClassifier.mlmodel */; };
+		80EBC92C2BFB36BA00B58933 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EBC92B2BFB36BA00B58933 /* ViewModel.swift */; };
+		80EBC92E2BFB3C2E00B58933 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EBC92D2BFB3C2E00B58933 /* UIImage+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +28,9 @@
 		80EBC9212BF7C23600B58933 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		80EBC9252BF7C4EC00B58933 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		80EBC9272BF7E5EF00B58933 /* AnalyzeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeView.swift; sourceTree = "<group>"; };
+		80EBC9292BF7F45700B58933 /* SkinToneClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SkinToneClassifier.mlmodel; sourceTree = "<group>"; };
+		80EBC92B2BFB36BA00B58933 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		80EBC92D2BFB3C2E00B58933 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,13 +63,16 @@
 		80EBC9102BF7C1FD00B58933 /* ToneSync */ = {
 			isa = PBXGroup;
 			children = (
+				80EBC9292BF7F45700B58933 /* SkinToneClassifier.mlmodel */,
 				80EBC9112BF7C1FD00B58933 /* ToneSyncApp.swift */,
 				80EBC9132BF7C1FD00B58933 /* ContentView.swift */,
 				80EBC9212BF7C23600B58933 /* LaunchScreenView.swift */,
-				80EBC9152BF7C1FF00B58933 /* Assets.xcassets */,
-				80EBC9172BF7C1FF00B58933 /* Preview Content */,
 				80EBC9252BF7C4EC00B58933 /* CameraView.swift */,
 				80EBC9272BF7E5EF00B58933 /* AnalyzeView.swift */,
+				80EBC9152BF7C1FF00B58933 /* Assets.xcassets */,
+				80EBC92B2BFB36BA00B58933 /* ViewModel.swift */,
+				80EBC9172BF7C1FF00B58933 /* Preview Content */,
+				80EBC92D2BFB3C2E00B58933 /* UIImage+Extensions.swift */,
 			);
 			path = ToneSync;
 			sourceTree = "<group>";
@@ -148,9 +157,12 @@
 			files = (
 				80EBC9142BF7C1FD00B58933 /* ContentView.swift in Sources */,
 				80EBC9122BF7C1FD00B58933 /* ToneSyncApp.swift in Sources */,
+				80EBC92A2BF7F45700B58933 /* SkinToneClassifier.mlmodel in Sources */,
 				80EBC9282BF7E5EF00B58933 /* AnalyzeView.swift in Sources */,
 				80EBC9222BF7C23600B58933 /* LaunchScreenView.swift in Sources */,
 				80EBC9262BF7C4EC00B58933 /* CameraView.swift in Sources */,
+				80EBC92C2BFB36BA00B58933 /* ViewModel.swift in Sources */,
+				80EBC92E2BFB3C2E00B58933 /* UIImage+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,12 +299,11 @@
 				DEVELOPMENT_TEAM = 478535K8BX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME)";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app need to use your cmera in order to analyze the picture taken";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -318,12 +329,11 @@
 				DEVELOPMENT_TEAM = 478535K8BX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME)";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app need to use your cmera in order to analyze the picture taken";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
