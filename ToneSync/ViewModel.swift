@@ -85,23 +85,23 @@ class ViewModel: ObservableObject {
                 let confidence3 = String(classifications[2].confidence) + "\n"
     
                 if identifier1 == "Fair_light: " && confidence1 >= confidence2 && confidence1 >= confidence3 {
-                    classified = "Fair Light"
+                    classified = "Your skin tone is fair light"
                 } else if identifier1 == "Medium_tane: " && confidence1 >= confidence2 && confidence1 >= confidence3 {
-                    classified = "Medium Tane"
+                    classified = "Your skin tone is medium tane"
                 } else if identifier1 == "Dark_deep: " && confidence1 >= confidence2 && confidence1 >= confidence3 {
-                    classified = "Dark Deep"
+                    classified = "Your skin tone is dark deep"
                 } else if identifier2 == "Fair_light: " && confidence2 >= confidence1 && confidence2 >= confidence3 {
-                    classified = "Fair Light"
+                    classified = "Your skin tone is fair light"
                 } else if identifier2 == "Medium_tane: " && confidence2 >= confidence1 && confidence2 >= confidence3 {
-                    classified = "Medium Tane"
+                    classified = "Your skin tone is medium tane"
                 } else if identifier2 == "Dark_deep: " && confidence2 >= confidence1 && confidence2 >= confidence3 {
-                    classified = "Dark Deep"
+                    classified = "Your skin tone is dark deep"
                 } else if identifier3 == "Fair_light: " && confidence3 >= confidence1 && confidence3 >= confidence2 {
-                    classified = "Fair Light"
+                    classified = "Your skin tone is fair light"
                 } else if identifier3 == "Medium_tane: " && confidence3 >= confidence1 && confidence3 >= confidence2 {
-                    classified = "Medium Tane"
+                    classified = "Your skin tone is medium tane"
                 } else if identifier3 == "Dark_deep: " && confidence3 >= confidence1 && confidence3 >= confidence2 {
-                    classified = "Dark Deep"
+                    classified = "Your skin tone is dark deep"
                 } else {
                     classified = "Ya apa lagi ya"
                 }
