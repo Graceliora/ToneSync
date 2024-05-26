@@ -19,6 +19,14 @@ struct LiveFeedViewControllerWrapper: UIViewControllerRepresentable {
 
 struct RecommendationView: View {
     
+    @ObservedObject private var icViewModel = ViewModel()
+    
+    var capturedImage: UIImage
+    
+    init(captureImage: UIImage){
+        self.capturedImage = captureImage
+    }
+    
     var body: some View {
         ZStack {
             LiveFeedViewControllerWrapper()
@@ -53,15 +61,15 @@ struct RecommendationView: View {
                             Spacer()
                             HStack {
                                 Circle()
-                                    .foregroundColor(.pink1)
+                                    .foregroundColor(icViewModel.color1)
                                 Circle()
-                                    .foregroundColor(.pink2)
+                                    .foregroundColor(icViewModel.color2)
                                 Circle()
-                                    .foregroundColor(.pink3)
+                                    .foregroundColor(icViewModel.color3)
                                 Circle()
-                                    .foregroundColor(.pink4)
+                                    .foregroundColor(icViewModel.color4)
                                 Circle()
-                                    .foregroundColor(.pink5)
+                                    .foregroundColor(icViewModel.color5)
                             }
                             Spacer()
                             Spacer()
@@ -69,11 +77,9 @@ struct RecommendationView: View {
                     }.frame(width: 536, height: 327)
                 }
             }.padding(.bottom, 100)
+        }.onAppear {
+            icViewModel.updateClassifications(for: capturedImage)
         }
     }
 
-}
-
-#Preview {
-    RecommendationView()
 }

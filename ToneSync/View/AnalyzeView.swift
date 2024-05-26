@@ -14,6 +14,7 @@ struct AnalyzeView: View {
     @StateObject private var icViewModel = ViewModel()
     
     @State var back: Bool = false
+    @State var next: Bool = false
     var capturedImage: UIImage
     
     init(captureImage: UIImage){
@@ -21,7 +22,7 @@ struct AnalyzeView: View {
     }
     
     var body: some View {
-        if back == false {
+        if back == false && next == false {
             VStack {
                 Button(action: {
                     self.back = true
@@ -49,6 +50,7 @@ struct AnalyzeView: View {
                         .frame(height: 700)
                     
                     Button(action: {
+                        self.next = true
                     }, label: {
                         ZStack {
                             Rectangle()
@@ -84,8 +86,12 @@ struct AnalyzeView: View {
                 })
                 Spacer()
             }
-        } else {
+        } else if back == true {
             ScanView()
+        } else if next == true {
+            RecommendationView(captureImage: capturedImage)
+        } else {
+            
         }
     }
 }
