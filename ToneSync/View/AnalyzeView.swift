@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-//import CoreML
-//import Vision
 
 struct AnalyzeView: View {
     @StateObject var camera = CameraModel()
@@ -15,8 +13,8 @@ struct AnalyzeView: View {
     
     @State var back: Bool = false
     @State var next: Bool = false
-    var capturedImage: UIImage
     
+    var capturedImage: UIImage
     init(captureImage: UIImage){
         self.capturedImage = captureImage
     }
@@ -30,7 +28,7 @@ struct AnalyzeView: View {
                     ZStack {
                         Rectangle()
                             .frame(width: 90, height: 90)
-                            .foregroundColor(.white.opacity(0.5))
+                            .foregroundColor(.white)
                             .cornerRadius(20)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 20)
@@ -41,13 +39,12 @@ struct AnalyzeView: View {
                             .foregroundColor(.darkBrown)
                     }.padding(.trailing, 550).padding(.top, 80)
                 })
+                
+                Spacer()
+                
                 HStack {
-                    Image(uiImage: capturedImage)
-                        .resizable()
-                        .scaledToFit()
-                        .edgesIgnoringSafeArea(.all)
-                        .scaleEffect(x: -1, y: 1)
-                        .frame(height: 700)
+                    
+                    Spacer()
                     
                     Button(action: {
                         self.next = true
@@ -55,7 +52,7 @@ struct AnalyzeView: View {
                         ZStack {
                             Rectangle()
                                 .frame(width: 90, height: 90)
-                                .foregroundColor(.white.opacity(0.5))
+                                .foregroundColor(.white)
                                 .cornerRadius(20)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 20)
@@ -66,25 +63,27 @@ struct AnalyzeView: View {
                                 .foregroundColor(.darkBrown)
                         }
                     })
-                }.padding(.leading, 100)
+                }.padding(.trailing, 50)
+                
+                Spacer()
+                
                 Button(action: {
                     icViewModel.updateClassifications(for: capturedImage)
                 }, label: {
                     ZStack {
                         Rectangle()
                             .frame(width: 600, height: 90)
-                            .foregroundColor(.darkBrown.opacity(0.5))
+                            .foregroundColor(.darkBrown)
                             .cornerRadius(20)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 20)
                                     .stroke(Color.darkBrown, lineWidth: 1)
                             )
                         Text(icViewModel.classified)
-                            .font(.system(size: 40))
+                            .font(.custom("Futura", size: 40))
                             .foregroundColor(.white)
-                    }.padding(.top, 50)
+                    }.padding(.bottom, 50)
                 })
-                Spacer()
             }
         } else if back == true {
             ScanView()

@@ -10,37 +10,31 @@ import AVFoundation
 
 struct ScanView: View {
     @StateObject var camera = CameraModel()
-    
     @State var isActive: Bool = false
-    
     @State var capturedImage: UIImage? = nil
     
     var body: some View {
         ZStack {
-            // Camera preview
             CameraPreview(camera: camera)
                 .ignoresSafeArea(.all, edges: .all)
-            
             
             VStack {
                 Spacer()
                 ZStack {
-                    // Show retake button if photo is taken
                     if camera.isTaken {
-//                    if capturedImage != nil {
+                        
                         if (isActive) {
                             AnalyzeView(captureImage: capturedImage ?? UIImage())
+                            
                         } else {
                             ZStack {
-                                // Retake photo button
                                 RetakeButton(camera: camera)
                                 
-                                // Analyze photo button
                                 Button(action: {self.isActive = true}, label: {
                                     ZStack {
                                         Rectangle()
                                             .frame(width: 90, height: 90)
-                                            .foregroundColor(.white.opacity(0.5))
+                                            .foregroundColor(.white)
                                             .cornerRadius(20)
                                             .overlay(
                                                 RoundedRectangle(cornerRadius: 20)
@@ -51,32 +45,32 @@ struct ScanView: View {
                                             .foregroundColor(.darkBrown)
                                     }
                                 }).padding(.leading, 520)
-                            }.padding(.bottom, 120)
+                            }.padding(.bottom, 160)
                         }
                         
                     } else {
                         ZStack {
+                            Image(.layer)
+                                .resizable()
+                                .scaledToFill()
+                                .ignoresSafeArea()
                             
-                            ZStack {
-                                Image("faceFrame")
-                                    .resizable()
-                                    .frame(width: 455.4, height: 600)
-                                    .padding(.bottom, 100)
-                                
+                            VStack {
+                                Spacer()
                                 Text("Scan your face!")
                                     .font(.custom("Futura", size: 40))
                                     .foregroundColor(.white)
-                                    .padding(.bottom, 900)
-                            }
-                            
-                            ZStack {
-                                // Pick photo button
-                                ImageButton()
-                                
-                                // Take photo button
+                                Spacer()
+                                Image("faceFrame")
+                                    .resizable()
+                                    .frame(width: 455.4, height: 600)
+                                    .padding(.leading, 5)
+                                Spacer()
                                 TakePhotoButton(camera: camera)
-                            }.padding(.top, 855)
-                        } .padding(.bottom, 120)
+                                    .padding(.bottom, 100)
+                                Spacer()
+                            }
+                        }
                     }
                 }
             }
@@ -102,7 +96,7 @@ struct RetakeButton: View {
             ZStack {
                 Rectangle()
                     .frame(width: 180, height: 90)
-                    .foregroundColor(.white.opacity(0.5))
+                    .foregroundColor(.white)
                     .cornerRadius(20)
                     .overlay(
                         RoundedRectangle(cornerRadius: 20)
@@ -116,26 +110,6 @@ struct RetakeButton: View {
     }
 }
 
-struct ImageButton: View {
-    var body: some View {
-        Button(action: {}, label: {
-            ZStack {
-                Rectangle()
-                    .frame(width: 90, height: 90)
-                    .foregroundColor(.white.opacity(0.5))
-                    .cornerRadius(20)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color.white, lineWidth: 1)
-                    )
-                Image(systemName: "photo.fill")
-                    .font(.system(size: 40))
-                    .foregroundColor(.darkBrown)
-            }
-        }).padding(.trailing, 520)
-    }
-}
-
 struct TakePhotoButton: View {
     @ObservedObject var camera: CameraModel
     
@@ -146,7 +120,7 @@ struct TakePhotoButton: View {
             ZStack {
                 Rectangle()
                     .frame(width: 180, height: 90)
-                    .foregroundColor(.white.opacity(0.5))
+                    .foregroundColor(.white)
                     .cornerRadius(20)
                     .overlay(
                         RoundedRectangle(cornerRadius: 20)
@@ -168,19 +142,13 @@ struct CameraPreview: UIViewRepresentable {
         camera.preview = AVCaptureVideoPreviewLayer(session: camera.session)
         camera.preview.frame = view.frame
         
-        // Your own properties
         camera.preview.videoGravity = .resizeAspectFill
         view.layer.addSublayer(camera.preview)
         
-        // Starting session
         camera.session.startRunning()
         
         return view
     }
     
     func updateUIView(_ uiView: UIView, context: Context) {}
-}
-
-#Preview {
-    ScanView()
 }

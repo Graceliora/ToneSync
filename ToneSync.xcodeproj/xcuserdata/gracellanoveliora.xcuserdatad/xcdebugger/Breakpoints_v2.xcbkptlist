@@ -14,10 +14,40 @@
             filePath = "ToneSync/Model/CameraModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "takePhoto()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C58AF5B4-E3BC-4248-A0D6-6AD66F069ED1 - 407c21b99910f138"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ToneSync.CameraModel.setUp() -&gt; ()"
+                  moduleName = "ToneSync"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gracellanoveliora/Documents/ADA/ToneSync/ToneSync/Model/CameraModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71">
+               </Location>
+               <Location
+                  uuid = "C58AF5B4-E3BC-4248-A0D6-6AD66F069ED1 - 73b96e49ab95c6dd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ToneSync.CameraModel.takePhoto() -&gt; ()"
+                  moduleName = "ToneSync"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gracellanoveliora/Documents/ADA/ToneSync/ToneSync/Model/CameraModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -30,10 +60,54 @@
             filePath = "ToneSync/Model/CameraModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "photoOutput(_:didFinishProcessingPhoto:error:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E1BA9391-7C34-4F47-A5EC-598386DB0BCC - 76a640be37f891f8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable () -&gt; () in ToneSync.CameraModel.takePhoto() -&gt; ()"
+                  moduleName = "ToneSync"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gracellanoveliora/Documents/ADA/ToneSync/ToneSync/Model/CameraModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85">
+               </Location>
+               <Location
+                  uuid = "E1BA9391-7C34-4F47-A5EC-598386DB0BCC - 374bdcac08dc2c79"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable () -&gt; () in ToneSync.CameraModel.takePhoto() -&gt; ()"
+                  moduleName = "ToneSync"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gracellanoveliora/Documents/ADA/ToneSync/ToneSync/Model/CameraModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86">
+               </Location>
+               <Location
+                  uuid = "E1BA9391-7C34-4F47-A5EC-598386DB0BCC - aa52a40b0f1a40bd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ToneSync.CameraModel.photoOutput(_: __C.AVCapturePhotoOutput, didFinishProcessingPhoto: __C.AVCapturePhoto, error: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
+                  moduleName = "ToneSync"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gracellanoveliora/Documents/ADA/ToneSync/ToneSync/Model/CameraModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

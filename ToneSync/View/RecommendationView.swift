@@ -55,7 +55,7 @@ struct RecommendationView: View {
                                 .font(.custom("Futura", size: 40))
                                 .foregroundColor(.white)
                             Spacer()
-                            Text("Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet.")
+                            Text("Discover the perfect lipstick shade for your unique skin tone with our expert recommendations.")
                                 .font(.custom("Futura", size: 24))
                                 .foregroundColor(.white)
                             Spacer()

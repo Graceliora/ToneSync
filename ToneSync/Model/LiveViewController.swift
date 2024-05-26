@@ -100,10 +100,6 @@ extension LiveFeedViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             faceLayer.fillColor = UIColor.clear.cgColor
             faceLayer.strokeColor = UIColor.yellow.cgColor
             
-//            self.faceLayers.append(faceLayer)
-//            self.view.layer.addSublayer(faceLayer)
-            
-            //FACE LANDMARKS
             if let landmarks = observation.landmarks {
                 if let leftEye = landmarks.leftEye {
                     self.handleLandmark(leftEye, faceBoundingBox: faceRectConverted)
@@ -121,26 +117,22 @@ extension LiveFeedViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     }
     
     private func handleLandmark(_ eye: VNFaceLandmarkRegion2D, faceBoundingBox: CGRect) {
-        // Ensure there are points in the face feature
         guard let firstPoint = eye.normalizedPoints.first else {
             return
         }
         
-        // Convert the first point to a CGPoint
         let landmarkPoint = CGPoint(x: firstPoint.y * faceBoundingBox.height + faceBoundingBox.origin.x,
                                     y: firstPoint.x * faceBoundingBox.width + faceBoundingBox.origin.y)
         
-        // Create a circular path (dot) at the landmark point
         let landmarkLayer = CAShapeLayer()
         let circlePath = UIBezierPath(arcCenter: landmarkPoint,
-                                      radius: 10, // Adjust the radius as needed
+                                      radius: 10,
                                       startAngle: 0,
                                       endAngle: CGFloat(Double.pi * 2),
                                       clockwise: true)
         landmarkLayer.path = circlePath.cgPath
         landmarkLayer.fillColor = UIColor.white.cgColor
         
-        // Add the dot layer to the faceLayers array and the view's layer
         self.faceLayers.append(landmarkLayer)
         self.view.layer.addSublayer(landmarkLayer)
     }

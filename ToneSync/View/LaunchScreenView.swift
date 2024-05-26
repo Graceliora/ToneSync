@@ -15,10 +15,10 @@ struct LaunchScreenView: View {
     @State private var txtOp = 0.0
     
     var body: some View {
-        
         ZStack {
             if self.isActive {
                 ScanView()
+                
             } else {
                 ZStack {
                     Image("launchBg")
@@ -43,7 +43,6 @@ struct LaunchScreenView: View {
                         self.txtOp = 1
                     }
                 }
-                
             }
         }.onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
@@ -53,8 +52,4 @@ struct LaunchScreenView: View {
             }
         }
     }
-}
-
-#Preview {
-    LaunchScreenView()
 }

@@ -37,18 +37,6 @@ struct Test: View {
                             .font(.custom("Futura", size: 24))
                             .foregroundColor(.white)
                         Spacer()
-                        HStack {
-                            Circle()
-                                .foregroundColor(.pink1)
-                            Circle()
-                                .foregroundColor(.pink2)
-                            Circle()
-                                .foregroundColor(.pink3)
-                            Circle()
-                                .foregroundColor(.pink4)
-                            Circle()
-                                .foregroundColor(.pink5)
-                        }
                         Spacer()
                         Spacer()
                     }

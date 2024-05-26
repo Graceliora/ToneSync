@@ -13,28 +13,22 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     @Published var isTaken = false
     @Published var session = AVCaptureSession()
     @Published var alert = false
-    
-    // Read pic data
+
     @Published var output = AVCapturePhotoOutput()
     
-    // Preview
     @Published var preview: AVCaptureVideoPreviewLayer!
     
-    // Captured Picture
     @Published var capturedPhoto: UIImage? = nil
     
     var viewModel: ViewModel?
     
     func checkPermission() {
-        // First checking camera has got permission...
         switch AVCaptureDevice.authorizationStatus(for: .video) {
             
         case .authorized:
-            // Setting up session
             setUp()
             
         case .notDetermined:
-            // Retusting for permission
             AVCaptureDevice.requestAccess(for: .video) { status in
                 if status {
                     DispatchQueue.main.async {
@@ -52,22 +46,16 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     }
     
     func setUp() {
-        // Setting up camera...
         do {
-            // Setting configs
             session.beginConfiguration()
             
             let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front)
             let input = try AVCaptureDeviceInput(device: device!)
             
-            
-            
-            // Checking and adding to session...
             if session.canAddInput(input) {
                 session.addInput(input)
             }
             
-            // Same for output
             if session.canAddOutput(output) {
                 session.addOutput(output)
             }
@@ -95,7 +83,6 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
             return
         }
         self.capturedPhoto = image
-//        viewModel?.selectedImage = capturedPhoto÷0
     }
     
     func retakePhoto() {
