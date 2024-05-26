@@ -1,0 +1,186 @@
+//
+//  ScanView.swift
+//  ToneSync
+//
+//  Created by Gracella Noveliora on 21/05/24.
+//
+
+import SwiftUI
+import AVFoundation
+
+struct ScanView: View {
+    @StateObject var camera = CameraModel()
+    
+    @State var isActive: Bool = false
+    
+    @State var capturedImage: UIImage? = nil
+    
+    var body: some View {
+        ZStack {
+            // Camera preview
+            CameraPreview(camera: camera)
+                .ignoresSafeArea(.all, edges: .all)
+            
+            
+            VStack {
+                Spacer()
+                ZStack {
+                    // Show retake button if photo is taken
+                    if camera.isTaken {
+//                    if capturedImage != nil {
+                        if (isActive) {
+                            AnalyzeView(captureImage: capturedImage ?? UIImage())
+                        } else {
+                            ZStack {
+                                // Retake photo button
+                                RetakeButton(camera: camera)
+                                
+                                // Analyze photo button
+                                Button(action: {self.isActive = true}, label: {
+                                    ZStack {
+                                        Rectangle()
+                                            .frame(width: 90, height: 90)
+                                            .foregroundColor(.white.opacity(0.5))
+                                            .cornerRadius(20)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 20)
+                                                    .stroke(Color.white, lineWidth: 1)
+                                            )
+                                        Image(systemName: "magnifyingglass.circle.fill")
+                                            .font(.system(size: 40))
+                                            .foregroundColor(.darkBrown)
+                                    }
+                                }).padding(.leading, 520)
+                            }.padding(.bottom, 120)
+                        }
+                        
+                    } else {
+                        ZStack {
+                            
+                            ZStack {
+                                Image("faceFrame")
+                                    .resizable()
+                                    .frame(width: 455.4, height: 600)
+                                    .padding(.bottom, 100)
+                                
+                                Text("Scan your face!")
+                                    .font(.custom("Futura", size: 40))
+                                    .foregroundColor(.white)
+                                    .padding(.bottom, 900)
+                            }
+                            
+                            ZStack {
+                                // Pick photo button
+                                ImageButton()
+                                
+                                // Take photo button
+                                TakePhotoButton(camera: camera)
+                            }.padding(.top, 855)
+                        } .padding(.bottom, 120)
+                    }
+                }
+            }
+        }
+        .onAppear {
+            camera.checkPermission()
+        }
+        .onReceive(camera.$capturedPhoto) { output in
+            if let image = output{
+                self.capturedImage = image
+            }
+        }
+    }
+}
+
+struct RetakeButton: View {
+    @ObservedObject var camera: CameraModel
+    
+    var body: some View {
+        Button(action: {
+            camera.retakePhoto()
+        }, label: {
+            ZStack {
+                Rectangle()
+                    .frame(width: 180, height: 90)
+                    .foregroundColor(.white.opacity(0.5))
+                    .cornerRadius(20)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.white, lineWidth: 1)
+                    )
+                Image(systemName: "arrow.triangle.2.circlepath.camera.fill")
+                    .font(.system(size: 40))
+                    .foregroundColor(.darkBrown)
+            }
+        })
+    }
+}
+
+struct ImageButton: View {
+    var body: some View {
+        Button(action: {}, label: {
+            ZStack {
+                Rectangle()
+                    .frame(width: 90, height: 90)
+                    .foregroundColor(.white.opacity(0.5))
+                    .cornerRadius(20)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.white, lineWidth: 1)
+                    )
+                Image(systemName: "photo.fill")
+                    .font(.system(size: 40))
+                    .foregroundColor(.darkBrown)
+            }
+        }).padding(.trailing, 520)
+    }
+}
+
+struct TakePhotoButton: View {
+    @ObservedObject var camera: CameraModel
+    
+    var body: some View {
+        Button(action: {
+            camera.takePhoto()
+        }, label: {
+            ZStack {
+                Rectangle()
+                    .frame(width: 180, height: 90)
+                    .foregroundColor(.white.opacity(0.5))
+                    .cornerRadius(20)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.white, lineWidth: 1)
+                    )
+                Image(systemName: "camera.fill")
+                    .font(.system(size: 40))
+                    .foregroundColor(.darkBrown)
+            }
+        })
+    }
+}
+
+struct CameraPreview: UIViewRepresentable {
+    @ObservedObject var camera: CameraModel
+    
+    func makeUIView(context: Context) -> UIView {
+        let view = UIView(frame: UIScreen.main.bounds)
+        camera.preview = AVCaptureVideoPreviewLayer(session: camera.session)
+        camera.preview.frame = view.frame
+        
+        // Your own properties
+        camera.preview.videoGravity = .resizeAspectFill
+        view.layer.addSublayer(camera.preview)
+        
+        // Starting session
+        camera.session.startRunning()
+        
+        return view
+    }
+    
+    func updateUIView(_ uiView: UIView, context: Context) {}
+}
+
+#Preview {
+    ScanView()
+}

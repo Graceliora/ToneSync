@@ -7,30 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		80AE9D1B2BFC8D1A00C3C9AD /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AE9D1A2BFC8D1A00C3C9AD /* Test.swift */; };
+		80AE9D1D2BFC91A700C3C9AD /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AE9D1C2BFC91A700C3C9AD /* ScanView.swift */; };
+		80AE9D1F2BFC954900C3C9AD /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AE9D1E2BFC954900C3C9AD /* CameraModel.swift */; };
+		80AE9D252BFCA6F300C3C9AD /* RecommendationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AE9D242BFCA6F300C3C9AD /* RecommendationView.swift */; };
+		80B14EEE2C02F9E60070F77B /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B14EED2C02F9E60070F77B /* LiveViewController.swift */; };
 		80EBC9122BF7C1FD00B58933 /* ToneSyncApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EBC9112BF7C1FD00B58933 /* ToneSyncApp.swift */; };
 		80EBC9142BF7C1FD00B58933 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EBC9132BF7C1FD00B58933 /* ContentView.swift */; };
 		80EBC9162BF7C1FF00B58933 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80EBC9152BF7C1FF00B58933 /* Assets.xcassets */; };
 		80EBC9192BF7C1FF00B58933 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80EBC9182BF7C1FF00B58933 /* Preview Assets.xcassets */; };
 		80EBC9222BF7C23600B58933 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EBC9212BF7C23600B58933 /* LaunchScreenView.swift */; };
-		80EBC9262BF7C4EC00B58933 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EBC9252BF7C4EC00B58933 /* CameraView.swift */; };
 		80EBC9282BF7E5EF00B58933 /* AnalyzeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EBC9272BF7E5EF00B58933 /* AnalyzeView.swift */; };
 		80EBC92A2BF7F45700B58933 /* SkinToneClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 80EBC9292BF7F45700B58933 /* SkinToneClassifier.mlmodel */; };
 		80EBC92C2BFB36BA00B58933 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EBC92B2BFB36BA00B58933 /* ViewModel.swift */; };
-		80EBC92E2BFB3C2E00B58933 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EBC92D2BFB3C2E00B58933 /* UIImage+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		80AE9D1A2BFC8D1A00C3C9AD /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		80AE9D1C2BFC91A700C3C9AD /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
+		80AE9D1E2BFC954900C3C9AD /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
+		80AE9D242BFCA6F300C3C9AD /* RecommendationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationView.swift; sourceTree = "<group>"; };
+		80B14EED2C02F9E60070F77B /* LiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
 		80EBC90E2BF7C1FD00B58933 /* ToneSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToneSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80EBC9112BF7C1FD00B58933 /* ToneSyncApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToneSyncApp.swift; sourceTree = "<group>"; };
 		80EBC9132BF7C1FD00B58933 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		80EBC9152BF7C1FF00B58933 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80EBC9182BF7C1FF00B58933 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		80EBC9212BF7C23600B58933 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
-		80EBC9252BF7C4EC00B58933 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		80EBC9272BF7E5EF00B58933 /* AnalyzeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeView.swift; sourceTree = "<group>"; };
 		80EBC9292BF7F45700B58933 /* SkinToneClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SkinToneClassifier.mlmodel; sourceTree = "<group>"; };
 		80EBC92B2BFB36BA00B58933 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		80EBC92D2BFB3C2E00B58933 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +50,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		80AE9D202BFC96A200C3C9AD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				80EBC9212BF7C23600B58933 /* LaunchScreenView.swift */,
+				80AE9D1C2BFC91A700C3C9AD /* ScanView.swift */,
+				80EBC9272BF7E5EF00B58933 /* AnalyzeView.swift */,
+				80AE9D242BFCA6F300C3C9AD /* RecommendationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		80AE9D222BFC96D100C3C9AD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				80AE9D1E2BFC954900C3C9AD /* CameraModel.swift */,
+				80B14EED2C02F9E60070F77B /* LiveViewController.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		80AE9D232BFC96D800C3C9AD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				80EBC92B2BFB36BA00B58933 /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		80EBC9052BF7C1FD00B58933 = {
 			isa = PBXGroup;
 			children = (
@@ -66,13 +100,12 @@
 				80EBC9292BF7F45700B58933 /* SkinToneClassifier.mlmodel */,
 				80EBC9112BF7C1FD00B58933 /* ToneSyncApp.swift */,
 				80EBC9132BF7C1FD00B58933 /* ContentView.swift */,
-				80EBC9212BF7C23600B58933 /* LaunchScreenView.swift */,
-				80EBC9252BF7C4EC00B58933 /* CameraView.swift */,
-				80EBC9272BF7E5EF00B58933 /* AnalyzeView.swift */,
+				80AE9D202BFC96A200C3C9AD /* View */,
+				80AE9D222BFC96D100C3C9AD /* Model */,
+				80AE9D232BFC96D800C3C9AD /* ViewModel */,
 				80EBC9152BF7C1FF00B58933 /* Assets.xcassets */,
-				80EBC92B2BFB36BA00B58933 /* ViewModel.swift */,
 				80EBC9172BF7C1FF00B58933 /* Preview Content */,
-				80EBC92D2BFB3C2E00B58933 /* UIImage+Extensions.swift */,
+				80AE9D1A2BFC8D1A00C3C9AD /* Test.swift */,
 			);
 			path = ToneSync;
 			sourceTree = "<group>";
@@ -157,12 +190,15 @@
 			files = (
 				80EBC9142BF7C1FD00B58933 /* ContentView.swift in Sources */,
 				80EBC9122BF7C1FD00B58933 /* ToneSyncApp.swift in Sources */,
+				80AE9D1F2BFC954900C3C9AD /* CameraModel.swift in Sources */,
+				80AE9D1B2BFC8D1A00C3C9AD /* Test.swift in Sources */,
 				80EBC92A2BF7F45700B58933 /* SkinToneClassifier.mlmodel in Sources */,
 				80EBC9282BF7E5EF00B58933 /* AnalyzeView.swift in Sources */,
 				80EBC9222BF7C23600B58933 /* LaunchScreenView.swift in Sources */,
-				80EBC9262BF7C4EC00B58933 /* CameraView.swift in Sources */,
+				80AE9D252BFCA6F300C3C9AD /* RecommendationView.swift in Sources */,
+				80AE9D1D2BFC91A700C3C9AD /* ScanView.swift in Sources */,
 				80EBC92C2BFB36BA00B58933 /* ViewModel.swift in Sources */,
-				80EBC92E2BFB3C2E00B58933 /* UIImage+Extensions.swift in Sources */,
+				80B14EEE2C02F9E60070F77B /* LiveViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

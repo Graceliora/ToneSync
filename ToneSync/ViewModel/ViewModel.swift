@@ -11,28 +11,7 @@ import Vision
 
 class ViewModel: ObservableObject {
     @Published var selectedImage: UIImage?
-    @Published var result = "Select the 'camera' button"
-    @Published var classified = "Classify"
-
-    
-    func classifyingImage(uiImage: UIImage) {
-        print("masuk pak eko")
-        print(uiImage)
-        guard let ciImage = CIImage(image: uiImage) else {
-            return
-        }
-        let handler = VNImageRequestHandler(ciImage: ciImage)
-        let request = VNClassifyImageRequest{request, error in
-            if let result = request.results as? [VNClassificationObservation] {
-                print("classification \(result.first!.identifier) confidence \(result.first!.confidence)")
-            }
-        }
-        do {
-            try handler.perform([request])
-        } catch let error {
-            print(error.localizedDescription)
-        }
-    }
+    @Published var classified = "Analyze"
     
         // 1. Set Up Model
         lazy var classificationRequest: VNCoreMLRequest = {
@@ -73,7 +52,7 @@ class ViewModel: ObservableObject {
             let classifications = request.results as! [VNClassificationObservation]
     
             if classifications.isEmpty {
-                result = "Nothing recognized."
+                print("Nothing recognized.")
             } else {
                 let identifier1 = classifications[0].identifier + ": "
                 let confidence1 = String(classifications[0].confidence) + "\n"
@@ -106,7 +85,7 @@ class ViewModel: ObservableObject {
                     classified = "Ya apa lagi ya"
                 }
                 
-                result = "Classification: \n" + identifier1 + confidence1 + identifier2 + confidence2 + identifier3 + confidence3
+                print("Classification: \n" + identifier1 + confidence1 + identifier2 + confidence2 + identifier3 + confidence3)
             }
             
         }
